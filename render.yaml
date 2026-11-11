@@ -1,0 +1,17 @@
+services:
+  - type: worker
+    name: nitro-boost-badges
+    runtime: node
+    buildCommand: npm ci && npm run setup:reader
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: MESSAGE_CONTENT_INTENT
+        value: "true"
+      - key: BOT_TOKEN
+        sync: false
+      - key: READER_TOKEN
+        sync: false
+      - key: PROFILE_SOURCE
+        value: discord.py-self
